@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>风暴来临了</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-04-06T06:52:58.326Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>周景</name>
+    <email>zhoujing.chinese@gmail.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新浪SAE使用Druid连接池</title>
+    <link href="http://yoursite.com/2016/04/06/%E6%96%B0%E6%B5%AASAE%E4%BD%BF%E7%94%A8Druid%E8%BF%9E%E6%8E%A5%E6%B1%A0%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2016/04/06/新浪SAE使用Druid连接池配置/</id>
+    <published>2016-04-06T03:41:51.128Z</published>
+    <updated>2016-04-06T06:52:58.326Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;SAE-MySQL-限制如下&quot;&gt;&lt;a href=&quot;#SAE-MySQL-限制如下&quot; class=&quot;headerlink&quot; title=&quot;SAE MySQL 限制如下&quot;&gt;&lt;/a&gt;SAE MySQL 限制如下&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;MySQL服务在拿到连接10秒内未做操作将会自动丢失&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;适用如SAE的Druid配置&quot;&gt;&lt;a href=&quot;#适用如SAE的Druid配置&quot; class=&quot;headerlink&quot; title=&quot;适用如SAE的Druid配置&quot;&gt;&lt;/a&gt;适用如SAE的Druid配置&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;bean id=&amp;quot;dataSource&amp;quot; class=&amp;quot;com.alibaba.druid.pool.DruidDataSource&amp;quot; 
+    init-method=&amp;quot;init&amp;quot; destroy-method=&amp;quot;close&amp;quot;&amp;gt;
+
+    &amp;lt;property name=&amp;quot;url&amp;quot; value=&amp;quot;@jdbc.url@&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;username&amp;quot; value=&amp;quot;@jdbc.username@&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;password&amp;quot; value=&amp;quot;@jdbc.password@&amp;quot; /&amp;gt;
+
+    &amp;lt;property name=&amp;quot;filters&amp;quot; value=&amp;quot;stat&amp;quot; /&amp;gt;
+    &amp;lt;!-- 最大连接数 --&amp;gt;
+    &amp;lt;property name=&amp;quot;maxActive&amp;quot; value=&amp;quot;20&amp;quot; /&amp;gt;
+    &amp;lt;!-- 初始连接数 --&amp;gt;
+    &amp;lt;property name=&amp;quot;initialSize&amp;quot; value=&amp;quot;0&amp;quot; /&amp;gt;
+    &amp;lt;!-- 配置获取连接等待超时的时间 --&amp;gt; 
+    &amp;lt;property name=&amp;quot;maxWait&amp;quot; value=&amp;quot;60000&amp;quot; /&amp;gt;
+    &amp;lt;!-- 最小空闲连接 --&amp;gt;
+    &amp;lt;property name=&amp;quot;minIdle&amp;quot; value=&amp;quot;0&amp;quot; /&amp;gt;
+    &amp;lt;!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 --&amp;gt;  
+    &amp;lt;property name=&amp;quot;timeBetweenEvictionRunsMillis&amp;quot; value=&amp;quot;10000&amp;quot; /&amp;gt;
+    &amp;lt;!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --&amp;gt; 
+    &amp;lt;property name=&amp;quot;minEvictableIdleTimeMillis&amp;quot; value=&amp;quot;300000&amp;quot; /&amp;gt;
+
+    &amp;lt;property name=&amp;quot;validationQuery&amp;quot; value=&amp;quot;SELECT &amp;apos;x&amp;apos;&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;testWhileIdle&amp;quot; value=&amp;quot;true&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;testOnBorrow&amp;quot; value=&amp;quot;false&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;testOnReturn&amp;quot; value=&amp;quot;false&amp;quot; /&amp;gt;
+
+    &amp;lt;property name=&amp;quot;poolPreparedStatements&amp;quot; value=&amp;quot;true&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;maxOpenPreparedStatements&amp;quot; value=&amp;quot;20&amp;quot; /&amp;gt;
+
+&amp;lt;/bean&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SAE-MySQL-限制如下&quot;&gt;&lt;a href=&quot;#SAE-MySQL-限制如下&quot; class=&quot;headerlink&quot; title=&quot;SAE MySQL 限制如下&quot;&gt;&lt;/a&gt;SAE MySQL 限制如下&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;MySQL服务在拿
+    
+    </summary>
+    
+    
+      <category term="SAE" scheme="http://yoursite.com/tags/SAE/"/>
+    
+      <category term="Druid" scheme="http://yoursite.com/tags/Druid/"/>
+    
+  </entry>
+  
+</feed>
