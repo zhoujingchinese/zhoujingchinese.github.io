@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-06T06:52:58.326Z</updated>
+  <updated>2016-04-07T05:29:16.319Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,16 +16,86 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Gradle指定JDK版本</title>
+    <link href="http://yoursite.com/2016/04/07/Gradle%E6%8C%87%E5%AE%9AJDK%E7%89%88%E6%9C%AC/"/>
+    <id>http://yoursite.com/2016/04/07/Gradle指定JDK版本/</id>
+    <published>2016-04-07T05:19:52.419Z</published>
+    <updated>2016-04-07T05:29:16.319Z</updated>
+    
+    <content type="html">&lt;p&gt;Gradle默认使用的是环境变量JAVA_HOME指向的JDK，如果想变更JDK版本可以在Gradle的.gradle目录下，新建gradle.properties文件，并在文件中加入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;org.gradle.java.home=C:/Program Files/Java/jdk1.7.0_51
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;“C:/Program Files/Java/jdk1.7.0_51”为JDK安装目录&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Gradle默认使用的是环境变量JAVA_HOME指向的JDK，如果想变更JDK版本可以在Gradle的.gradle目录下，新建gradle.properties文件，并在文件中加入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;org.gradle.java.home=C:/Progr
+    
+    </summary>
+    
+    
+      <category term="Gradle" scheme="http://yoursite.com/tags/Gradle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gradle中文乱码问题</title>
+    <link href="http://yoursite.com/2016/04/07/Gradle%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/04/07/Gradle中文乱码问题/</id>
+    <published>2016-04-07T04:21:36.377Z</published>
+    <updated>2016-04-07T05:29:01.856Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;编译过程Class乱码&quot;&gt;&lt;a href=&quot;#编译过程Class乱码&quot; class=&quot;headerlink&quot; title=&quot;编译过程Class乱码&quot;&gt;&lt;/a&gt;编译过程Class乱码&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;现象&lt;/strong&gt;&lt;br&gt;程序System.out输出中文时，出现乱码&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方法&lt;/strong&gt;&lt;br&gt;需要需要在build.gradle文件中加入如下代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//编译编码设置
+tasks.withType(JavaCompile) {  
+    options.encoding = &amp;quot;UTF-8&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;文件拷贝、过滤乱码&quot;&gt;&lt;a href=&quot;#文件拷贝、过滤乱码&quot; class=&quot;headerlink&quot; title=&quot;文件拷贝、过滤乱码&quot;&gt;&lt;/a&gt;文件拷贝、过滤乱码&lt;/h2&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;现象&lt;/strong&gt;&lt;br&gt;用Gradle命令拷贝文件，用ReplaceTokens替换配置文件参数后，文件出现乱码&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方法&lt;/strong&gt;&lt;br&gt;先在Gradle指定的.gradle目录下，新建gradle.properties文件，并在文件中加入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;org.gradle.jvmargs=-Dfile.encoding=UTF-8
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后在项目build.gradle文件中加入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//环境编码设置
+System.properties[&amp;quot;file.encoding&amp;quot;] = &amp;quot;UTF-8&amp;quot;
+System.properties[&amp;quot;sun.jnu.encoding&amp;quot;] = &amp;quot;UTF-8&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;“file.encoding”文件内容的编码格式&lt;br&gt;“sun.jnu.encoding”文件名的编码格式&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;编译过程Class乱码&quot;&gt;&lt;a href=&quot;#编译过程Class乱码&quot; class=&quot;headerlink&quot; title=&quot;编译过程Class乱码&quot;&gt;&lt;/a&gt;编译过程Class乱码&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;现象&lt;/strong&gt;&lt;br&gt;程序System.out输出中文时，出现乱码&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方法&lt;/strong&gt;&lt;br&gt;需要需要在build.gradle文件中加入如下代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//编译编码设置
+tasks.withType(JavaCompile) {  
+    options.encoding = &amp;quot;UTF-8&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;文件拷贝、过滤乱码&quot;&gt;&lt;a href=&quot;#文件拷贝、过滤乱码&quot; class=&quot;headerlink&quot; title=&quot;文件拷贝、过滤乱码&quot;&gt;&lt;/a&gt;文件拷贝、过滤乱码&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Gradle" scheme="http://yoursite.com/tags/Gradle/"/>
+    
+  </entry>
+  
+  <entry>
     <title>新浪SAE使用Druid连接池</title>
     <link href="http://yoursite.com/2016/04/06/%E6%96%B0%E6%B5%AASAE%E4%BD%BF%E7%94%A8Druid%E8%BF%9E%E6%8E%A5%E6%B1%A0%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2016/04/06/新浪SAE使用Druid连接池配置/</id>
     <published>2016-04-06T03:41:51.128Z</published>
-    <updated>2016-04-06T06:52:58.326Z</updated>
+    <updated>2016-04-07T05:11:22.624Z</updated>
     
     <content type="html">&lt;h2 id=&quot;SAE-MySQL-限制如下&quot;&gt;&lt;a href=&quot;#SAE-MySQL-限制如下&quot; class=&quot;headerlink&quot; title=&quot;SAE MySQL 限制如下&quot;&gt;&lt;/a&gt;SAE MySQL 限制如下&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;MySQL服务在拿到连接10秒内未做操作将会自动丢失&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;适用如SAE的Druid配置&quot;&gt;&lt;a href=&quot;#适用如SAE的Druid配置&quot; class=&quot;headerlink&quot; title=&quot;适用如SAE的Druid配置&quot;&gt;&lt;/a&gt;适用如SAE的Druid配置&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;bean id=&amp;quot;dataSource&amp;quot; class=&amp;quot;com.alibaba.druid.pool.DruidDataSource&amp;quot; 
+&lt;h2 id=&quot;适用如SAE的Druid配置&quot;&gt;&lt;a href=&quot;#适用如SAE的Druid配置&quot; class=&quot;headerlink&quot; title=&quot;适用如SAE的Druid配置&quot;&gt;&lt;/a&gt;适用如SAE的Druid配置&lt;/h2&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;bean id=&amp;quot;dataSource&amp;quot; class=&amp;quot;com.alibaba.druid.pool.DruidDataSource&amp;quot; 
     init-method=&amp;quot;init&amp;quot; destroy-method=&amp;quot;close&amp;quot;&amp;gt;
 
     &amp;lt;property name=&amp;quot;url&amp;quot; value=&amp;quot;@jdbc.url@&amp;quot; /&amp;gt;
@@ -60,7 +130,9 @@
     <summary type="html">
     
       &lt;h2 id=&quot;SAE-MySQL-限制如下&quot;&gt;&lt;a href=&quot;#SAE-MySQL-限制如下&quot; class=&quot;headerlink&quot; title=&quot;SAE MySQL 限制如下&quot;&gt;&lt;/a&gt;SAE MySQL 限制如下&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;MySQL服务在拿
+&lt;p&gt;MySQL服务在拿到连接10秒内未做操作将会自动丢失&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;适用如SAE的Druid配置&quot;&gt;&lt;a href=&quot;#适用如SAE的Druid配置&quot; class=&quot;headerlink&quot; title=&quot;适用如SAE的Druid配置&quot;&gt;&lt;/a&gt;适用如SAE的Druid配置&lt;/h2&gt;
     
     </summary>
     

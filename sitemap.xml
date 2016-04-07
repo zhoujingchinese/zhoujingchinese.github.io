@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/404.html</loc>
+    <loc>http://yoursite.com/2016/04/07/Gradle%E6%8C%87%E5%AE%9AJDK%E7%89%88%E6%9C%AC/</loc>
     
-    <lastmod>2016-04-06T07:09:08.394Z</lastmod>
+    <lastmod>2016-04-07T05:29:16.319Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/04/07/Gradle%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2016-04-07T05:29:01.856Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2016/04/06/%E6%96%B0%E6%B5%AASAE%E4%BD%BF%E7%94%A8Druid%E8%BF%9E%E6%8E%A5%E6%B1%A0%E9%85%8D%E7%BD%AE/</loc>
     
-    <lastmod>2016-04-06T06:52:58.326Z</lastmod>
+    <lastmod>2016-04-07T05:11:22.624Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/404.html</loc>
+    
+    <lastmod>2016-04-06T07:09:08.394Z</lastmod>
     
   </url>
   

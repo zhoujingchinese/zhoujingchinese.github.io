@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="周景, 博客" />
+  <meta name="keywords" content="Gradle," />
 
 
 
@@ -57,15 +57,34 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风暴来临了">
-<meta property="og:url" content="http://yoursite.com/tags/Druid/index.html">
+<meta name="description" content="编译过程Class乱码现象程序System.out输出中文时，出现乱码
+解决方法需要需要在build.gradle文件中加入如下代码
+//编译编码设置
+tasks.withType(JavaCompile) {  
+    options.encoding = &amp;quot;UTF-8&amp;quot;
+}
+文件拷贝、过滤乱码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle中文乱码问题">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/Gradle中文乱码问题/index.html">
 <meta property="og:site_name" content="风暴来临了">
-<meta property="og:description">
+<meta property="og:description" content="编译过程Class乱码现象程序System.out输出中文时，出现乱码
+解决方法需要需要在build.gradle文件中加入如下代码
+//编译编码设置
+tasks.withType(JavaCompile) {  
+    options.encoding = &amp;quot;UTF-8&amp;quot;
+}
+文件拷贝、过滤乱码">
+<meta property="og:updated_time" content="2016-04-07T05:29:01.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="风暴来临了">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Gradle中文乱码问题">
+<meta name="twitter:description" content="编译过程Class乱码现象程序System.out输出中文时，出现乱码
+解决方法需要需要在build.gradle文件中加入如下代码
+//编译编码设置
+tasks.withType(JavaCompile) {  
+    options.encoding = &amp;quot;UTF-8&amp;quot;
+}
+文件拷贝、过滤乱码">
 
 
 
@@ -83,7 +102,7 @@
   };
 </script>
 
-  <title> 标签: Druid | 风暴来临了 </title>
+  <title> Gradle中文乱码问题 | 风暴来临了 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -104,7 +123,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -182,46 +201,133 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Druid
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gradle中文乱码问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T12:21:36+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="编译过程Class乱码"><a href="#编译过程Class乱码" class="headerlink" title="编译过程Class乱码"></a>编译过程Class乱码</h2><p><strong>现象</strong><br>程序System.out输出中文时，出现乱码</p>
+<p><strong>解决方法</strong><br>需要需要在build.gradle文件中加入如下代码</p>
+<pre><code>//编译编码设置
+tasks.withType(JavaCompile) {  
+    options.encoding = &quot;UTF-8&quot;
+}
+</code></pre><h2 id="文件拷贝、过滤乱码"><a href="#文件拷贝、过滤乱码" class="headerlink" title="文件拷贝、过滤乱码"></a>文件拷贝、过滤乱码</h2><a id="more"></a>
+<p><strong>现象</strong><br>用Gradle命令拷贝文件，用ReplaceTokens替换配置文件参数后，文件出现乱码</p>
+<p><strong>解决方法</strong><br>先在Gradle指定的.gradle目录下，新建gradle.properties文件，并在文件中加入</p>
+<pre><code>org.gradle.jvmargs=-Dfile.encoding=UTF-8
+</code></pre><p>然后在项目build.gradle文件中加入</p>
+<pre><code>//环境编码设置
+System.properties[&quot;file.encoding&quot;] = &quot;UTF-8&quot;
+System.properties[&quot;sun.jnu.encoding&quot;] = &quot;UTF-8&quot;
+</code></pre><blockquote>
+<p>“file.encoding”文件内容的编码格式<br>“sun.jnu.encoding”文件名的编码格式</p>
+</blockquote>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/04/06/新浪SAE使用Druid连接池配置/" itemprop="url">
-              
-                <span itemprop="name">新浪SAE使用Druid连接池</span>
-              
-            </a>
-        
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-06T11:41:51+08:00"
-              content="2016-04-06" >
-          04-06
-        </time>
-      </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gradle/" rel="tag">#Gradle</a>
+          
+        </div>
+      
 
-    </header>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/06/新浪SAE使用Druid连接池配置/" rel="next" title="新浪SAE使用Druid连接池">
+                <i class="fa fa-chevron-left"></i> 新浪SAE使用Druid连接池
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/07/Gradle指定JDK版本/" rel="prev" title="Gradle指定JDK版本">
+                Gradle指定JDK版本 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -229,6 +335,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -248,8 +358,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/my.png"
@@ -294,6 +413,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译过程Class乱码"><span class="nav-number">1.</span> <span class="nav-text">编译过程Class乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件拷贝、过滤乱码"><span class="nav-number">2.</span> <span class="nav-text">文件拷贝、过滤乱码</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -367,6 +497,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
 
   
 

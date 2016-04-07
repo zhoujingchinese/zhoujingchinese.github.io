@@ -206,6 +206,196 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/07/Gradle指定JDK版本/" itemprop="url">
+                  Gradle指定JDK版本
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T13:19:52+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Gradle默认使用的是环境变量JAVA_HOME指向的JDK，如果想变更JDK版本可以在Gradle的.gradle目录下，新建gradle.properties文件，并在文件中加入</p>
+<pre><code>org.gradle.java.home=C:/Program Files/Java/jdk1.7.0_51
+</code></pre><blockquote>
+<p>“C:/Program Files/Java/jdk1.7.0_51”为JDK安装目录</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/Gradle中文乱码问题/" itemprop="url">
+                  Gradle中文乱码问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T12:21:36+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="编译过程Class乱码"><a href="#编译过程Class乱码" class="headerlink" title="编译过程Class乱码"></a>编译过程Class乱码</h2><p><strong>现象</strong><br>程序System.out输出中文时，出现乱码</p>
+<p><strong>解决方法</strong><br>需要需要在build.gradle文件中加入如下代码</p>
+<pre><code>//编译编码设置
+tasks.withType(JavaCompile) {  
+    options.encoding = &quot;UTF-8&quot;
+}
+</code></pre><h2 id="文件拷贝、过滤乱码"><a href="#文件拷贝、过滤乱码" class="headerlink" title="文件拷贝、过滤乱码"></a>文件拷贝、过滤乱码</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/Gradle中文乱码问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/06/新浪SAE使用Druid连接池配置/" itemprop="url">
                   新浪SAE使用Druid连接池
                 </a>
@@ -248,42 +438,15 @@
 
       
         
-          
-            <h2 id="SAE-MySQL-限制如下"><a href="#SAE-MySQL-限制如下" class="headerlink" title="SAE MySQL 限制如下"></a>SAE MySQL 限制如下</h2><blockquote>
+          <h2 id="SAE-MySQL-限制如下"><a href="#SAE-MySQL-限制如下" class="headerlink" title="SAE MySQL 限制如下"></a>SAE MySQL 限制如下</h2><blockquote>
 <p>MySQL服务在拿到连接10秒内未做操作将会自动丢失</p>
 </blockquote>
-<h2 id="适用如SAE的Druid配置"><a href="#适用如SAE的Druid配置" class="headerlink" title="适用如SAE的Druid配置"></a>适用如SAE的Druid配置</h2><pre><code>&lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot; 
-    init-method=&quot;init&quot; destroy-method=&quot;close&quot;&gt;
-
-    &lt;property name=&quot;url&quot; value=&quot;@jdbc.url@&quot; /&gt;
-    &lt;property name=&quot;username&quot; value=&quot;@jdbc.username@&quot; /&gt;
-    &lt;property name=&quot;password&quot; value=&quot;@jdbc.password@&quot; /&gt;
-
-    &lt;property name=&quot;filters&quot; value=&quot;stat&quot; /&gt;
-    &lt;!-- 最大连接数 --&gt;
-    &lt;property name=&quot;maxActive&quot; value=&quot;20&quot; /&gt;
-    &lt;!-- 初始连接数 --&gt;
-    &lt;property name=&quot;initialSize&quot; value=&quot;0&quot; /&gt;
-    &lt;!-- 配置获取连接等待超时的时间 --&gt; 
-    &lt;property name=&quot;maxWait&quot; value=&quot;60000&quot; /&gt;
-    &lt;!-- 最小空闲连接 --&gt;
-    &lt;property name=&quot;minIdle&quot; value=&quot;0&quot; /&gt;
-    &lt;!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 --&gt;  
-    &lt;property name=&quot;timeBetweenEvictionRunsMillis&quot; value=&quot;10000&quot; /&gt;
-    &lt;!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --&gt; 
-    &lt;property name=&quot;minEvictableIdleTimeMillis&quot; value=&quot;300000&quot; /&gt;
-
-    &lt;property name=&quot;validationQuery&quot; value=&quot;SELECT &apos;x&apos;&quot; /&gt;
-    &lt;property name=&quot;testWhileIdle&quot; value=&quot;true&quot; /&gt;
-    &lt;property name=&quot;testOnBorrow&quot; value=&quot;false&quot; /&gt;
-    &lt;property name=&quot;testOnReturn&quot; value=&quot;false&quot; /&gt;
-
-    &lt;property name=&quot;poolPreparedStatements&quot; value=&quot;true&quot; /&gt;
-    &lt;property name=&quot;maxOpenPreparedStatements&quot; value=&quot;20&quot; /&gt;
-
-&lt;/bean&gt;
-</code></pre>
-          
+<h2 id="适用如SAE的Druid配置"><a href="#适用如SAE的Druid配置" class="headerlink" title="适用如SAE的Druid配置"></a>适用如SAE的Druid配置</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/06/新浪SAE使用Druid连接池配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -347,7 +510,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -357,7 +520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
